@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 config :haikunator, :nouns, ~w(
    waterfall river breeze moon rain wind sea morning

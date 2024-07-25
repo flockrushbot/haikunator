@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 config :haikunator, :adjectives, ~w(
   autumn hidden bitter misty silent empty dry dark summer
