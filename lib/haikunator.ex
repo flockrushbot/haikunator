@@ -5,8 +5,8 @@ defmodule Haikunator do
   Generate Heroku-like memorable random names to use in your apps or anywhere else.
   """
 
-  @adjectives Application.get_env(:haikunator, :adjectives)
-  @nouns Application.get_env(:haikunator, :nouns)
+  @adjectives Application.compile_env(:haikunator, :adjectives, [])
+  @nouns Application.compile_env(:haikunator, :nouns, [])
 
   @doc """
   Generate a memorable name.
@@ -34,7 +34,7 @@ defmodule Haikunator do
       # No token, no delimiter
       iex> Haikunator.build(0, "") # => "twilightbreeze"
   """
-  @spec build(integer, String.t) :: String.t
+  @spec build(integer, String.t()) :: String.t()
   def build(range \\ 9999, delimiter \\ "-") do
     :rand.seed(:exsplus)
     token = if range > 0, do: random(range)
